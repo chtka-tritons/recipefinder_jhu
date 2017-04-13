@@ -1,2 +1,21 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<h1>Showing recipes for <%= @search %>:</h1>
+<table border="1">
+	<tr>
+		<th>Image</th>
+		<th>Title</th>
+		<th>Rank</th>
+	</tr>
+<% @recipes.each do |recipe| %>
+	<tr>
+		<td>
+			<a href=<%= recipe["f2f_url"] %>>
+			<img src=<%= recipe["image_url"] %> height="100" width="100">
+			</a>
+		</td>
+		<td>
+			<a href=<%= recipe["f2f_url"] %>><%= sanitize recipe["title"] %></a>
+		</td>
+		<td><%= recipe["social_rank"] %></td>
+	</tr>
+<% end %>
+</table>
